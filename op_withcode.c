@@ -11,7 +11,6 @@ void push(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%d: usage: push integer", line_number);
 		state_clear();
-		fclose(fptr);
 		exit(EXIT_FAILURE);
 	}
 	if (state->mode == MOD_STK)

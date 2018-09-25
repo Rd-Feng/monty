@@ -53,6 +53,7 @@ typedef struct info_s
 	char *op;
 	char *argument;
 	stack_t *stack;
+	FILE *fptr;
 	unsigned int mode;
 	unsigned int size;
 	unsigned int ln;
@@ -88,5 +89,4 @@ stack_t *get_dnodeint_at_index(stack_t *head, unsigned int index);
 int delete_dnodeint_at_index(stack_t **head, unsigned int index);
 
 extern info_t *state;
-extern FILE *fptr;
 #endif

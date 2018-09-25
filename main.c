@@ -1,6 +1,5 @@
 #include "monty.h"
 info_t *state = NULL;
-FILE *fptr = NULL;
 /**
  * main - entry point of Monty interpreter
  * @argc: argument count
@@ -18,17 +17,18 @@ int main(int argc, char **argv)
 		fprintf(stderr, "USAGE: monty file");
 		exit(EXIT_FAILURE);
 	}
-	fptr = fopen(argv[1], "r");
-	if (!fptr)
+	state_init();
+	state->fptr = fopen(argv[1], "r");
+	if (!state->fptr)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		state_clear();
 		exit(EXIT_FAILURE);
 	}
-	state_init();
 	do {
 		for (i = 0; i < BUF_SIZE; i++)
 			state->buffer[i] = 0;
-		num_read = getline(&(state->buffer), &size, fptr);
+		num_read = getline(&(state->buffer), &size, state->fptr);
 		process_line(state->buffer);
 		if (state->op)
 		{
@@ -38,8 +38,6 @@ int main(int argc, char **argv)
 		state->op = NULL;
 		state->argument = NULL;
 	} while (num_read != -1);
-
-	fclose(fptr);
 	state_clear();
 	return (0);
 }

@@ -3,7 +3,7 @@
 /**
  * state_init - initialize info struct
  */
-void state_init()
+void state_init(void)
 {
 	state = malloc(sizeof(info_t));
 	if (!state)
@@ -14,6 +14,7 @@ void state_init()
 	state->op = NULL;
 	state->argument = NULL;
 	state->stack = NULL;
+	state->fptr = NULL;
 	state->mode = MOD_STK;
 	state->size = 0;
 	state->ln = 0;
@@ -26,12 +27,13 @@ void state_init()
 	}
 }
 /**
- * info_clear - free memory allocated to info struct
+ * state_clear - free memory allocated to info struct
  */
-void state_clear()
+void state_clear(void)
 {
 	free(state->buffer);
 	free_dlistint(state->stack);
+	fclose(state->fptr);
 	free(state);
 }
 /**
@@ -82,7 +84,7 @@ void process_line(char *line)
 /**
  * runner - run an opcode
  */
-void runner()
+void runner(void)
 {
 	void (*func)(stack_t **, unsigned int) = get_func(state->op);
 
@@ -91,7 +93,6 @@ void runner()
 		fprintf(stderr, "L%d: unknown instruction %s\n",
 			state->ln, state->op);
 		state_clear();
-		fclose(fptr);
 		exit(EXIT_FAILURE);
 	}
 	func(&(state->stack), state->ln);

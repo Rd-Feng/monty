@@ -50,6 +50,8 @@ void (*get_func(char *opcode))(stack_t **stack, unsigned int line_number)
 		{"nop", nop},
 		{"add", add},
 		{"pall", pall},
+		{"stack", stack},
+		{"queue", queue},
 		{NULL, NULL}
 	};
 	instruction_t *instr = instrs;
@@ -89,6 +91,7 @@ void runner()
 		fprintf(stderr, "L%d: unknown instruction %s\n",
 			state->ln, state->op);
 		state_clear();
+		fclose(fptr);
 		exit(EXIT_FAILURE);
 	}
 	func(&(state->stack), state->ln);

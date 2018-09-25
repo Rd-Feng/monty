@@ -31,7 +31,10 @@ int main(int argc, char **argv)
 		num_read = getline(&(state->buffer), &size, fptr);
 		process_line(state->buffer);
 		if (state->op)
-			runner();
+		{
+			if (state->op[0] != '#')
+				runner();
+		}
 		state->op = NULL;
 		state->argument = NULL;
 	} while (num_read != -1);

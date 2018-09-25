@@ -1,5 +1,6 @@
 #include "monty.h"
 info_t *state = NULL;
+FILE *fptr = NULL;
 /**
  * main - entry point of Monty interpreter
  * @argc: argument count
@@ -11,7 +12,6 @@ int main(int argc, char **argv)
 {
 	size_t size = BUF_SIZE;
 	int i, num_read = 0;
-	FILE *fptr = NULL;
 
 	if (argc != 2)
 	{

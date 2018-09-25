@@ -10,6 +10,7 @@ void pint(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 		state_clear();
+		fclose(fptr);
 		exit(EXIT_FAILURE);
 	}
 	fprintf(stdout, "%d\n", (*stack)->n);
@@ -26,6 +27,7 @@ void pop(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't pop an empty stack\n",
 			line_number);
 		state_clear();
+		fclose(fptr);
 		exit(EXIT_FAILURE);
 	}
 	delete_dnodeint_at_index(stack, 0);
@@ -44,6 +46,7 @@ void swap(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n",
 			line_number);
+		fclose(fptr);
 		state_clear();
 		exit(EXIT_FAILURE);
 	}

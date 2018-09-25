@@ -85,4 +85,5 @@ stack_t *get_dnodeint_at_index(stack_t *head, unsigned int index);
 int delete_dnodeint_at_index(stack_t **head, unsigned int index);
 
 extern info_t *state;
+extern FILE *fptr;
 #endif

@@ -36,6 +36,8 @@ int isInt(char *s)
 {
 	if (*s == '-')
 		s++;
+	if (*s == 0)
+		return (0);
 	while (*s)
 	{
 		if (*s > '9' || *s < '0')

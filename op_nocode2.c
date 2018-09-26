@@ -8,7 +8,8 @@ void pchar(stack_t **stack, unsigned int line_number)
 {
 	if (state->size == 0)
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%d: can't pchar, stack empty\n",
+			line_number);
 		state_clear();
 		exit(EXIT_FAILURE);
 	}

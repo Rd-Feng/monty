@@ -1,6 +1,7 @@
 #include "monty.h"
 /**
- * _add - add first two elements in stack, remove them, and push result to stack
+ * _add - add first two elements in stack,
+ * then remove them, and push result to stack
  * @stack: address of stack
  * @line_number: line number of current processing input
  */

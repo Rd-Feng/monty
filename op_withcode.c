@@ -1,5 +1,5 @@
 #include "monty.h"
-/*int isInt(char *s);*/
+int isInt(char *s);
 /**
  * push - push a element to stack/queue
  * @stack: address of stack
@@ -9,7 +9,7 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *ret = NULL;
 
-	if (!state->argument /*|| !isInt(state->argument)*/)
+	if (!state->argument || !isInt(state->argument))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		state_clear();
@@ -32,8 +32,10 @@ void push(stack_t **stack, unsigned int line_number)
  *
  * Return: 0 if not integer, 1 otherwise
  */
-/*int isInt(char *s)
+int isInt(char *s)
 {
+	if (*s == '-')
+		s++;
 	while (*s)
 	{
 		if (*s > '9' || *s < '0')
@@ -42,4 +44,3 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 	return (1);
 }
-*/

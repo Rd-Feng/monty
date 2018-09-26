@@ -16,7 +16,7 @@ void _add(stack_t **stack, unsigned int line_number)
 	}
 	(*stack)->next->n += (*stack)->n;
 	delete_dnodeint_at_index(stack, 0);
-	state->ln--;
+	state->size--;
 }
 /**
  * _sub - subtract top from second top
@@ -34,7 +34,7 @@ void _sub(stack_t **stack, unsigned int line_number)
 	}
 	(*stack)->next->n -= (*stack)->n;
 	delete_dnodeint_at_index(stack, 0);
-	state->ln--;
+	state->size--;
 }
 /**
  * _mul - multiply first two elements on stack
@@ -52,7 +52,7 @@ void _mul(stack_t **stack, unsigned int line_number)
 	}
 	(*stack)->next->n *= (*stack)->n;
 	delete_dnodeint_at_index(stack, 0);
-	state->ln--;
+	state->size--;
 }
 /**
  * _div - divide second top by top
@@ -77,7 +77,7 @@ void _div(stack_t **stack, unsigned int line_number)
 	}
 	(*stack)->next->n /= (*stack)->n;
 	delete_dnodeint_at_index(stack, 0);
-	state->ln--;
+	state->size--;
 }
 /**
  * _mod - second top % top
@@ -102,5 +102,5 @@ void _mod(stack_t **stack, unsigned int line_number)
 	}
 	(*stack)->next->n %= (*stack)->n;
 	delete_dnodeint_at_index(stack, 0);
-	state->ln--;
+	state->size--;
 }

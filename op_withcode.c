@@ -7,6 +7,8 @@ int isInt(char *s);
  */
 void push(stack_t **stack, unsigned int line_number)
 {
+	stack_t *ret = NULL;
+
 	if (!state->argument || !isInt(state->argument))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
@@ -14,9 +16,14 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	if (state->mode == MOD_STK)
-		add_dnodeint(stack, atoi(state->argument));
+		ret = add_dnodeint(stack, atoi(state->argument));
 	else
-		add_dnodeint_end(stack, atoi(state->argument));
+		ret = add_dnodeint_end(stack, atoi(state->argument));
+	if (!ret)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
 	state->size++;
 }
 /**

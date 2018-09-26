@@ -6,8 +6,8 @@
  */
 void stack(stack_t **stack, unsigned int line_number)
 {
-	stack += 0;
-	line_number += 0;
+	(void) stack;
+	(void) line_number;
 	state->mode = MOD_STK;
 }
 /**

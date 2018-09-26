@@ -47,6 +47,7 @@ void (*get_func(char *opcode))(stack_t **stack, unsigned int line_number)
 	instruction_t instrs[] = {
 		{"push", push},
 		{"pint", pint},
+		{"pchar", pchar},
 		{"pop", pop},
 		{"swap", swap},
 		{"nop", nop},

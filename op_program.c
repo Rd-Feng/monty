@@ -61,6 +61,7 @@ void (*get_func(char *opcode))(stack_t **stack, unsigned int line_number)
 		{"stack", stack},
 		{"queue", queue},
 		{"rotl", rotl},
+		{"rotr", rotr},
 		{NULL, NULL}
 	};
 	instruction_t *instr = instrs;

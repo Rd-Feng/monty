@@ -61,3 +61,24 @@ void rotl(stack_t **stack, unsigned int line_number)
 		tail->next = head;
 	}
 }
+/**
+ * rotr - rotate stack to the bottom
+ * @stack: address of stack
+ * @line_number: line number
+ */
+void rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *head = *stack, *tail = *stack;
+	(void) line_number;
+
+	if (state->size > 1)
+	{
+		while (tail->next)
+			tail = tail->next;
+		*stack = tail;
+		tail->prev->next = NULL;
+		tail->prev = NULL;
+		tail->next = head;
+		head->prev = tail;
+	}
+}

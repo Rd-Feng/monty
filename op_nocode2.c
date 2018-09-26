@@ -40,3 +40,24 @@ void pstr(stack_t **stack, unsigned int line_number)
 	}
 	putchar('\n');
 }
+/**
+ * rotl - rotate stack to the top
+ * @stack: address of stack
+ * @line_number: line number
+ */
+void rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *head = *stack, *tail = *stack;
+	(void) line_number;
+
+	if (state->size > 1)
+	{
+		*stack = head->next;
+		while (tail->next)
+			tail = tail->next;
+		head->next->prev = NULL;
+		head->next = NULL;
+		head->prev = tail;
+		tail->next = head;
+	}
+}

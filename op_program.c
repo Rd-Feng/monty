@@ -48,6 +48,7 @@ void (*get_func(char *opcode))(stack_t **stack, unsigned int line_number)
 		{"push", push},
 		{"pint", pint},
 		{"pchar", pchar},
+		{"pstr", pstr},
 		{"pop", pop},
 		{"swap", swap},
 		{"nop", nop},

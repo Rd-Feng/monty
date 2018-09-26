@@ -22,3 +22,21 @@ void pchar(stack_t **stack, unsigned int line_number)
 	}
 	fprintf(stdout, "%c\n", (*stack)->n);
 }
+/**
+ * pstr - print stack as a string
+ * stop when stack is over, value of element is 0, or not ascii char
+ * @stack: address of stack
+ * @line_number: line number
+ */
+void pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *ptr = *stack;
+	(void) line_number;
+
+	while (ptr && (ptr->n <= 127 && ptr->n > 0))
+	{
+		putchar(ptr->n);
+		ptr = ptr->next;
+	}
+	putchar('\n');
+}

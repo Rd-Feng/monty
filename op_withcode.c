@@ -34,7 +34,7 @@ void push(stack_t **stack, unsigned int line_number)
  */
 int isInt(char *s)
 {
-	if (*s == '-')
+	if (*s == '-' || *s == '+')
 		s++;
 	if (*s == 0)
 		return (0);

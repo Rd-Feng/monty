@@ -33,7 +33,8 @@ void state_clear(void)
 {
 	free(state->buffer);
 	free_dlistint(state->stack);
-	fclose(state->fptr);
+	if (state->fptr)
+		fclose(state->fptr);
 	free(state);
 }
 /**

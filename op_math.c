@@ -9,7 +9,7 @@ void _add(stack_t **stack, unsigned int line_number)
 {
 	if (state->size < 2)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n",
+		fprintf(stderr, "L%u: can't add, stack too short\n",
 			line_number);
 		state_clear();
 		exit(EXIT_FAILURE);
@@ -27,7 +27,7 @@ void _sub(stack_t **stack, unsigned int line_number)
 {
 	if (state->size < 2)
 	{
-		fprintf(stderr, "L%d: can't sub, stack too short\n",
+		fprintf(stderr, "L%u: can't sub, stack too short\n",
 			line_number);
 		state_clear();
 		exit(EXIT_FAILURE);
@@ -45,7 +45,7 @@ void _mul(stack_t **stack, unsigned int line_number)
 {
 	if (state->size < 2)
 	{
-		fprintf(stderr, "L%d: can't mul, stack too short\n",
+		fprintf(stderr, "L%u: can't mul, stack too short\n",
 			line_number);
 		state_clear();
 		exit(EXIT_FAILURE);
@@ -63,14 +63,14 @@ void _div(stack_t **stack, unsigned int line_number)
 {
 	if (state->size < 2)
 	{
-		fprintf(stderr, "L%d: can't div, stack too short\n",
+		fprintf(stderr, "L%u: can't div, stack too short\n",
 			line_number);
 		state_clear();
 		exit(EXIT_FAILURE);
 	}
 	if ((*stack)->n == 0)
 	{
-		fprintf(stderr, "L%d: division by zero\n",
+		fprintf(stderr, "L%u: division by zero\n",
 			line_number);
 		state_clear();
 		exit(EXIT_FAILURE);
@@ -88,14 +88,14 @@ void _mod(stack_t **stack, unsigned int line_number)
 {
 	if (state->size < 2)
 	{
-		fprintf(stderr, "L%d: can't mod, stack too short\n",
+		fprintf(stderr, "L%u: can't mod, stack too short\n",
 			line_number);
 		state_clear();
 		exit(EXIT_FAILURE);
 	}
 	if ((*stack)->n == 0)
 	{
-		fprintf(stderr, "L%d: division by zero\n",
+		fprintf(stderr, "L%u: division by zero\n",
 			line_number);
 		state_clear();
 		exit(EXIT_FAILURE);

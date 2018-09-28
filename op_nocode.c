@@ -8,7 +8,7 @@ void pint(stack_t **stack, unsigned int line_number)
 {
 	if (state->size == 0)
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		state_clear();
 		exit(EXIT_FAILURE);
 	}
@@ -23,7 +23,7 @@ void pop(stack_t **stack, unsigned int line_number)
 {
 	if (state->size == 0)
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack\n",
+		fprintf(stderr, "L%u: can't pop an empty stack\n",
 			line_number);
 		state_clear();
 		exit(EXIT_FAILURE);
@@ -42,7 +42,7 @@ void swap(stack_t **stack, unsigned int line_number)
 
 	if (state->size < 2)
 	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n",
+		fprintf(stderr, "L%u: can't swap, stack too short\n",
 			line_number);
 		state_clear();
 		exit(EXIT_FAILURE);

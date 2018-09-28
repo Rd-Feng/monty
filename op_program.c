@@ -98,7 +98,7 @@ void runner(void)
 
 	if (!func)
 	{
-		fprintf(stderr, "L%d: unknown instruction %s\n",
+		fprintf(stderr, "L%u: unknown instruction %s\n",
 			state->ln, state->op);
 		state_clear();
 		exit(EXIT_FAILURE);

@@ -11,7 +11,7 @@ void push(stack_t **stack, unsigned int line_number)
 
 	if (!state->argument || !isInt(state->argument))
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		state_clear();
 		exit(EXIT_FAILURE);
 	}
